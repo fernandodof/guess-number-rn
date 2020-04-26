@@ -4,12 +4,14 @@ import BodyText from './../components/BodyText';
 import TitleText from './../components/TitleText';
 import Colors from './../constants/colors';
 
+import MainButton from './../components/MainButton';
+
 const GameOverScreen = props => {
 	return (
 		<View style={styles.screen}>
 			<TitleText style={styles.gameOver}>The game is over!</TitleText>
 			<View style={styles.imageContainer}>
-				<Image source={require('./../assets/over.png')} style={styles.image} resizeMode="stretch"></Image>
+				<Image source={require('./../assets/over.png')} style={styles.image} resizeMode='stretch'></Image>
 			</View>
 			<View style={styles.resultContainer}>
 				<BodyText style={styles.resultText}>Your phone needed
@@ -18,7 +20,7 @@ const GameOverScreen = props => {
 				 <Text style={styles.highlight}> {props.number}</Text>
 				</BodyText>
 			</View>
-			<Button title="NEW GAME" onPress={props.onRestart}></Button>
+			<MainButton onPress={props.onRestart}>NEW GAME</MainButton>
 		</View>
 	);
 };

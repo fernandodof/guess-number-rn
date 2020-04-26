@@ -1,10 +1,11 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { View, StyleSheet, Button, Alert } from 'react-native';
+import { View, StyleSheet, Alert } from 'react-native';
 
 import NumberContainer from '../components/NumberContainer';
 import Card from '../components/Card';
 import BodyText from './../components/BodyText';
+import MainButton from './../components/MainButton';
 
 const generateRadomNumber = (min, max, exclude) => {
 	min = Math.ceil(min);
@@ -64,8 +65,8 @@ const GameScreen = props => {
 			<BodyText>Oppnent's guess</BodyText>
 			<NumberContainer number={currentGuess}></NumberContainer>
 			<Card style={styles.card}>
-				<Button title="LOWER" onPress={nextGuessHandler.bind(this, direction.LOWER)}></Button>
-				<Button title="GRETER" onPress={nextGuessHandler.bind(this, direction.GREATER)}></Button>
+				<MainButton onPress={nextGuessHandler.bind(this, direction.LOWER)}>LOWER</MainButton>
+				<MainButton onPress={nextGuessHandler.bind(this, direction.GREATER)}>GREATER</MainButton>
 			</Card>
 		</View>
 	);
@@ -81,8 +82,8 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'space-around',
 		marginTop: 20,
-		width: 300,
-		maxWidth: '80%'
+		width: 400,
+		maxWidth: '90%'
 	}
 });
 
