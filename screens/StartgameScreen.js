@@ -8,7 +8,8 @@ import {
 	Keyboard,
 	Dimensions,
 	ScrollView,
-	KeyboardAvoidingView
+	KeyboardAvoidingView,
+	Platform
 } from 'react-native';
 
 import Card from '../components/Card';
@@ -73,7 +74,7 @@ const StartGameScreen = props => {
 
 	return (
 		<ScrollView>
-			<KeyboardAvoidingView behavior="position" keyboardVerticalOffset={30}>
+			<KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : null} keyboardVerticalOffset={30}>
 				<TouchableWithoutFeedback onPress={() => { Keyboard.dismiss() }}>
 					<View style={styles.screen}>
 						<BodyText style={styles.title}>Start a new game</BodyText>
