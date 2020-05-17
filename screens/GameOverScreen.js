@@ -33,19 +33,20 @@ const styles = StyleSheet.create({
 	screen: {
 		flex: 1,
 		justifyContent: 'center',
-		alignItems: 'center'
+		alignItems: 'center',
+		paddingVertical: 15
 	},
 	gameOver: {
 		fontSize: 22
 	},
 	imageContainer: {
-		width: DIMENSIONS.width * 0.6,
-		height: DIMENSIONS.width * 0.6,
-		borderRadius: DIMENSIONS.width * 0.6 / 2,
+		width: DIMENSIONS.width * 0.4,
+		height: DIMENSIONS.width * 0.4,
+		borderRadius: DIMENSIONS.width * 0.4 / 2,
 		borderWidth: 3,
 		borderColor: 'black',
 		overflow: 'hidden',
-		marginVertical: DIMENSIONS.height / 30
+		marginVertical: DIMENSIONS.height / 40
 	},
 	image: {
 		width: '100%',

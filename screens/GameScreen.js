@@ -77,41 +77,37 @@ const GameScreen = props => {
 		setPastGuesses(currentPastGueses => [nextNumber, ...currentPastGueses]);
 	};
 
+	// Vertical View
+	let gameControls = <React.Fragment>
+		<NumberContainer number={currentGuess}></NumberContainer>
+		<Card style={styles.card}>
+			<MainButton onPress={nextGuessHandler.bind(this, direction.LOWER)}>
+				<Ionicons name="md-remove" size={24} color="white"></Ionicons>
+			</MainButton>
+			<MainButton onPress={nextGuessHandler.bind(this, direction.GREATER)}>
+				<Ionicons name="md-add" size={24} color="white"></Ionicons>
+			</MainButton>
+		</Card>
+	</React.Fragment>;
+
+	// Horizontal view (side by side)
 	if (availableDeviceHeight < 500) {
-		return (<ScrollView>
-			<View style={styles.screen}>
-				<BodyText>Oppnent's guess</BodyText>
-				<View style={styles.landscapeControls}>
-					<MainButton onPress={nextGuessHandler.bind(this, direction.LOWER)}>
-						<Ionicons name="md-remove" size={24} color="white"></Ionicons>
-					</MainButton>
-					<NumberContainer number={currentGuess}></NumberContainer>
-					<MainButton onPress={nextGuessHandler.bind(this, direction.GREATER)}>
-						<Ionicons name="md-add" size={24} color="white"></Ionicons>
-					</MainButton>
-				</View>
-				<View style={styles.listContainer}>
-					<ScrollView contentContainerStyle={styles.list}>
-						{pastGuesses.map((guess, index) => renderListItem(guess, pastGuesses.length - index))}
-					</ScrollView>
-				</View>
-			</View>
-		</ScrollView>);
+		gameControls = <View style={styles.landscapeControls}>
+			<MainButton onPress={nextGuessHandler.bind(this, direction.LOWER)}>
+				<Ionicons name="md-remove" size={24} color="white"></Ionicons>
+			</MainButton>
+			<NumberContainer number={currentGuess}></NumberContainer>
+			<MainButton onPress={nextGuessHandler.bind(this, direction.GREATER)}>
+				<Ionicons name="md-add" size={24} color="white"></Ionicons>
+			</MainButton>
+		</View>
 	}
 
 	return (
 		<ScrollView>
 			<View style={styles.screen}>
 				<BodyText>Oppnent's guess</BodyText>
-				<NumberContainer number={currentGuess}></NumberContainer>
-				<Card style={styles.card}>
-					<MainButton onPress={nextGuessHandler.bind(this, direction.LOWER)}>
-						<Ionicons name="md-remove" size={24} color="white"></Ionicons>
-					</MainButton>
-					<MainButton onPress={nextGuessHandler.bind(this, direction.GREATER)}>
-						<Ionicons name="md-add" size={24} color="white"></Ionicons>
-					</MainButton>
-				</Card>
+				{gameControls}
 				<View style={styles.listContainer}>
 					<ScrollView contentContainerStyle={styles.list}>
 						{pastGuesses.map((guess, index) => renderListItem(guess, pastGuesses.length - index))}
