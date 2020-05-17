@@ -19,6 +19,7 @@ import BodyText from './../components/BodyText';
 import MainButton from './../components/MainButton';
 
 import Colors from '../constants/colors';
+import PlatformConstant from './../constants/platformConstant';
 
 const StartGameScreen = props => {
 	const [enteredValue, setEnteredValue] = useState('');
@@ -74,7 +75,7 @@ const StartGameScreen = props => {
 
 	return (
 		<ScrollView>
-			<KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : null} keyboardVerticalOffset={30}>
+			<KeyboardAvoidingView behavior={Platform.OS === PlatformConstant.IOS ? 'padding' : null} keyboardVerticalOffset={30}>
 				<TouchableWithoutFeedback onPress={() => { Keyboard.dismiss() }}>
 					<View style={styles.screen}>
 						<BodyText style={styles.title}>Start a new game</BodyText>

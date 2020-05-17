@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Platform } from 'react-native';
 import Colors from '../constants/colors';
+import PlatformConstant from './../constants/platformConstant';
 import TitleText from './TitleText';
 
 const Header = props => {
@@ -16,8 +17,6 @@ const Header = props => {
 		</View>
 	);
 };
-
-const isAndroid = Platform.OS === 'android';
 
 const styles = StyleSheet.create({
 	headerBase: {
@@ -36,7 +35,7 @@ const styles = StyleSheet.create({
 		borderBottomColor: '#ccc'
 	},
 	headerTitle: {
-		color: isAndroid ? '#f1f1f1' : Colors.primary,
+		color: Platform.OS === PlatformConstant.ANDROID ? '#f1f1f1' : Colors.primary,
 		fontSize: 18,
 	}
 })
